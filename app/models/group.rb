@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
   belongs_to :user
-  belongs_to :entity
+  has_many :entities
+  has_many :entity_groups
 
-  validates :name, :icon, presence:true
+  validates :name, :icon, presence: true
 end
