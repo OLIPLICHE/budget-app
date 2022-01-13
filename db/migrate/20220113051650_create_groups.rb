@@ -4,7 +4,6 @@ class CreateGroups < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :icon
       t.references :user, null: false, foreign_key: true
-      t.references :entity, null: false, foreign_key: true
 
       t.timestamps
     end
