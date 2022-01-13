@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "splash#index"
 
-  get "/splash", to: "splash#index"
+  resources :splash
   # resources :splash, only: %i[index]
 end
