@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A mobile web application where a user manage its budget: have a list of transactions associated with a category, so that the user can see how much money it spent and on what.
 
 Things you may want to cover:
 
