@@ -1,0 +1,16 @@
+<div class='#'>
+  <%= form_with model: @group,  url: user_groups_path(params[:user_id]), method: 'post', class: "flex-column form", id:'category_form' do |form| %>
+  
+  <%= render 'shared/header', :title => "NEW CATEGORY", :back_url => user_groups_path, :back_button => true,  :form_id => 'category_form', :action_button =>'Save' %>
+  
+  <%= render 'shared/messages'%>
+  
+  <%= form.text_field :name, autofocus: true, placeholder:'Category name' %>
+  
+  <%= form.hidden_field :icon %>
+  
+  <% icons = ['food', 'sport', 'transportation', 'book', 'bank', 'entertainment', 'invoice', 'computer', 'education'] %>
+  
+  <% end %>
+
+</div>
