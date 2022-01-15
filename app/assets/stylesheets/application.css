@@ -1,225 +1,240 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-@font-face {
-  font-family: 'Proxima Nova Font';
-  src: url('Proxima Nova Font.otf');
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #8d8c8c;
-  font-family: "Proxima Nova Font", Arial, Helvetica, sans-serif;
 }
 
-.profiler-results {
+#body {
+  background-color: #f5f6f8;
+}
+
+.profiler-result {
   display: none;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: #8d8c8c;
+  color: rgb(162, 162, 153) !important;
 }
 
-.link {
-  margin: 1rem auto;
-}
-
-.container {
-  min-height: 100vh;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.flex-column {
+.home-container {
+  height: 100vh;
+  padding: 15rem 0 6rem 0;
   display: flex;
   flex-direction: column;
-}
-
-.justify-space-between {
   justify-content: space-between;
 }
 
-.header {
-  background-color: #3778c2;
-  color: #fff;
+.sign-btn-wrapper {
+  padding: 0 1rem;
+  gap: 0.5rem;
+}
+
+.login-field {
   padding: 0.5rem;
-  height: 2.5rem;
+  border-radius: 2px;
 }
 
-.card {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin: 0.3rem 0.5rem;
-  background-color: #fff;
+.login-btn {
+  background-color: #3778c2;
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 5px;
 }
 
-.card:last-child {
-  margin-bottom: 1.5rem;
+#loginBtn {
+  color: rgb(240, 232, 232);
 }
 
-.group-info {
-  flex-grow: 1;
-  margin: 1rem 0.5rem;
-  justify-content: space-between;
+.signup-btn {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 5px;
 }
 
-.icon {
-  width: 75px;
-  margin: 0.5rem;
+#signupBtn {
+  color: rgb(162, 162, 153);
 }
 
-.add-button {
-  background-color: #5fb523;
+.fa-arrow-left {
   color: #fff;
-  margin: 10px;
-  margin-top: auto;
-  padding: 1rem;
-  border: 1px solid #fff;
-  outline: 10px solid #5fb523;
+}
+
+.nav-top {
+  padding: 2px 0.5rem 0.5rem 0.5rem;
+  background-color: #3470b4;
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgb(240, 232, 232);
+}
+
+.nav-top-two {
+  padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+  background-color: #3470b4;
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgb(240, 232, 232);
+}
+
+#margin {
+  padding-right: 5rem;
+}
+
+i {
+  color: #f0f0f2;
+}
+
+.inputs {
+  border: 1px solid #f0f0f2;
+}
+
+input {
+  border: none;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+input::placeholder {
+  color: rgb(162, 162, 153);
+  padding: 0.5rem;
+}
+
+.action {
+  background: transparent;
+  color: rgb(240, 232, 232);
+  border: none;
+}
+
+.user-icon {
+  color: #fff;
+  background-color: rgba(187, 190, 198, 255);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   text-align: center;
+  line-height: 40px;
 }
 
-.border {
-  border: 1px solid red;
+.registration-picture {
+  align-items: baseline;
 }
 
-.total-amount {
-  padding: 0.8rem 0.5rem;
+#no-padding,
+#no-padding_two {
+  margin: 0;
+}
+
+#forget {
+  color: rgb(162, 162, 153);
+}
+
+.forgot-pass {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.pic {
+  color: rgb(162, 162, 153);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.green-field {
+  background-color: #5fb523;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.green-button {
+  width: 100%;
+  padding: 0.5rem;
+  color: rgb(240, 232, 232);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: #5fb523;
+}
+
+.group-ul {
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.group-list {
   background-color: #fff;
-  box-shadow: 0 2px 3px 2px #ccc;
-  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  color: rgb(162, 162, 153);
+  border-radius: 4px;
+  box-shadow: 4px 3px 3px rgb(240, 232, 232);
+}
+
+.list-items {
+  display: flex;
+  align-items: center;
+}
+
+.group-holder {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.currency {
+  padding-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.total-amount-holder {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.144);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.money-ul {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.money-names {
+  margin-bottom: 0.5rem;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }
 
 .title {
-  color: #fff;
-  text-align: center;
-  flex-grow: 1;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
-.date {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.form input,
-.form select {
-  margin: 0.2rem;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #cac8c8;
-  border-radius: 3px;
-  color: rgb(82, 81, 81);
-}
-
-.submit {
-  color: #fff;
-  border: none;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.checkboxes,
-.icons {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.3rem;
-  margin: 0.3rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #fff;
-}
-
-.icons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.category-icon {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #ccc;
-}
-
-.category-icon:hover {
-  opacity: 0.7;
-}
-
-.selected {
-  border: 2px solid rgb(8, 126, 236);
-}
-
-legend {
-  padding: 0.3rem;
-  font-size: 1.2rem;
-}
-
-.new_user {
+.flex {
   display: flex;
-  flex-direction: column;
-}
-
-.fields {
-  background-color: #fff;
-  margin-top: 0.5rem;
-}
-
-.fields input {
-  border: none;
-  border-top: 1px solid rgb(230, 229, 229);
-  margin: 0 0.3rem;
-  padding: 0.5em;
-  font-size: 1.1rem;
-  outline: none;
-}
-
-.fields input:first-child {
-  border-top: none;
-}
-
-.center {
-  text-align: center;
-}
-
-::placeholder {
-  color: #ccc;
-  font-size: 0.8rem;
-}
-
-.form input:focus {
-  outline: 1px solid rgb(88, 172, 250);
-}
-
-.notice {
-  color: #18ad52;
-  margin: 0.2rem;
+  justify-content: space-between;
 }
 
 .alert {
-  color: #da3309;
-  margin: 0.2rem;
+  position: sticky;
+  top: 10px;
+  margin-bottom: 1rem;
 }

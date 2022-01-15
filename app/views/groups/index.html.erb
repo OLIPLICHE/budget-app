@@ -5,32 +5,25 @@
         <i class="fas fa-sign-out-alt"></i>
     <% end %>
 </nav>
-  
-  <%= render 'shared/messages'%>
 
-  <ul class='list flex-column'>
-    <% @groups.each do |group|%>
-      <li class='card flex-row'>
-        <%= image_tag(group.icon, class: 'icon') %>
-        <div class='group-info flex-row'>
-          <div class='flex-column justify-space-between'>
-            <%= link_to user_group_path(params[:user_id], group) do %>
-              <h3><%= group.name%></h3>
-            <%end%>
-            <span>
-              <%= group.created_at.strftime("%d")%>
-              <%= I18n.t("date.abbr_month_names")[group.created_at.strftime("%m").to_i]%>
-              <%= group.created_at.strftime("%Y")%>             
-            </span>
-          </div>
-          <div>
-            <span class='bold'>$<%= '%.2f' % group.entities.sum(:amount) %></span>
-          </div>
-        </div>
-      </li>
-    <% end %>  
-  </ul>
-
-  <%= link_to 'ADD NEW CATEGORY', new_user_group_path(@user), class: 'add-button'%>
-
+  <div class="extra">
+    <% if @groups.exists? %>
+    <ul class = "group-ul">
+        <% @groups.each do |group| %>
+          <li class = "group-list">
+            <div class="list-items">
+                <div class = "group-holder">
+                    <img class="w-25" src="<%= group.icon%>" alt="No IMG">
+                   <p class = "title"> <%= link_to group.name, group_path(group) %> </p>
+                </div>
+                <p class = "currency title"><%= number_to_currency(group.entities.sum(&:amount))%></p>
+            </div>
+          </li>
+        <% end %>
+    </ul>
+    <%end%>
+</div>
+<div class="green-field">
+    <%= button_to "CREATE", new_group_path, class: "green-button", method: "get" %>
+</div>
 

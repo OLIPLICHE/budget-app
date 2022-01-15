@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
- def home; end
+  def home; end
 
- def new
+  def new
     @user = User.new
- end
+  end
 end

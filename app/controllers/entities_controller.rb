@@ -1,8 +1,7 @@
 class EntitiesController < ApplicationController
-
   def new
     @entity = Entity.new
-     @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
   end
 
   def create
