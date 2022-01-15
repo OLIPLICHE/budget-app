@@ -10,7 +10,26 @@
   <%= form.hidden_field :icon %>
   
   <% icons = ['food', 'sport', 'transportation', 'book', 'bank', 'entertainment', 'invoice', 'computer', 'education'] %>
-  
+
+  <%= field_set_tag 'Select category icon', class:'icons' do %>
+    <% icons.each do |icon|%>
+      <%= image_tag(icon, class:'category-icon selected', id:icon) %>
+    <% end %>
   <% end %>
 
+<% end %>
+
 </div>
+
+<script>
+  let icons = document.querySelectorAll('.category-icon')
+  let icon_id = document.querySelector('#group_icon')
+  icons.forEach(icon => {
+    icon.className='category-icon'
+    icon.addEventListener('click', (event)=>{
+      icons.forEach(i=>i.classList.remove('selected'))
+      icon.classList.add('selected')
+      icon_id.value = event.target.id
+    })
+  });
+</script>
