@@ -1,0 +1,32 @@
+<div class="#">
+  <%= render 'shared/header', :title=> "TRANSACTIONS", :back_url => user_groups_path, :back_button => true, :form_id=> ''%>
+
+  <div class="#">
+    <span class='bold'><%= @group.name %> (total amount):</span>
+    <span class='bold'>$<%= '%.2f' % @total %></span>
+  </div>
+
+  <%= render partial:'shared/messages'%>
+
+  <ul class="#">
+    <% @entities.each do |entity|%>
+      <li class='#'>
+        <div class='#'>
+          <div class='#'>
+            <h3><%= entity.name %></h3>
+            <span class="#">
+              <%= entity.created_at.strftime("%d") %>
+              <%= I18n.t("date.abbr_month_names")[entity.created_at.strftime("%m").to_i]%>
+              <%= entity.created_at.strftime("%Y")%>
+            </span>
+          </div>
+
+           <span class='bold'>$<%= '%.2f' % entity.amount %></span>
+
+        </div>
+      </li> 
+    <%end%>        
+  </ul>
+
+  <%= link_to  'ADD TRANSACTION', new_user_group_entity_path(@group.user, @group), class:'add-button' %>
+</div>
