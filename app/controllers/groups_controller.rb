@@ -11,4 +11,11 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @group = Group.find(params[:id])
+    entities = @group.entities.order(created_at: :desc)
+    @total = @group.entities.sum(:amount)
+  end
+
 end
