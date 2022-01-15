@@ -3,23 +3,15 @@ class GroupsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @user = current_user
-    @groups = Group.order(:created_at).where(user: @user)
-    @total = 0
-    @groups.each do |group|
-      @total += group.entities.sum(:amount)
-    end
+    @groups = Group.where(params[:id]).order(created_at: 'DESC')
   end
 
   def show
-    @user = current_user
     @group = Group.find(params[:id])
-    @entities = @group.entities.order(created_at: :desc)
     @total = @group.entities.sum(:amount)
   end
 
   def new
-    @user = current_user
     @group = Group.new
   end
 

@@ -1,23 +1,66 @@
-# README
+A mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
-A mobile web application where a user manage its budget: have a list of transactions associated with a category, so that the user can see how much money it spent and on what.
+## Built With
+- Ruby on Rails
+- PostgreSQL
+- Live Link
+- Getting Started
+To get a local copy up and running follow these simple example steps.
 
-Things you may want to cover:
+## Prerequisites
+- Ruby
+- Rails
+- Setup
+- Make sure you have Ruby on Rails set up properly on your computer
+- Clone or download this repo on your machine
+- Enter project directory
+- Install
+- bundle install
+- Database
 
-* Ruby version
+# Create user
+sudo -u postgres createuser recipe_app -s
 
-* System dependencies
+# Create the database
+rails db:create
 
-* Configuration
+## Apply migration
+rails db:migrate
 
-* Database creation
+# Load the schema
+rails db:schema:load
+Run
+rails s
+Test
+rspec
+Troubleshoot
 
-* Database initialization
+### Rspec failing
+RAILS_ENV=test rake db:reset
 
-* How to run the test suite
+### New Scaffold
+rails g scaffold_controller model
 
-* Services (job queues, cache servers, search engines, etc.)
+### Undo migration
+rake db:migrate VERSION=0
 
-* Deployment instructions
+Author
+👤 Olipliche Mavoungou Paka
 
-* ...
+GitHub: @githubhandle
+Twitter: @twitterhandle
+LinkedIn: LinkedIn
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the issues page.
+
+Show your support
+Give a ⭐️ if you like this project!
+
+Acknowledgments
+Microverse
+Original design idea by Gregoire Vella on Behance.
+License
+MIT

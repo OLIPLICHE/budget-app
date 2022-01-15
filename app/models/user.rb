@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :entities
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: { case_sensitive: true }
-  validates :password, length: { in: 6..20 }
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :email, presence: true, length: { maximum: 50 }
+  validates :password, presence: true, length: { maximum: 50 }
 end

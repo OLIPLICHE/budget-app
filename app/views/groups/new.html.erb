@@ -1,35 +1,20 @@
-<div class='container'>
-  <%= form_with model: @group,  url: user_groups_path(params[:user_id]), method: 'post', class: "flex-column form", id:'category_form' do |form| %>
-  
-  <%= render 'shared/header', :title => "NEW CATEGORY", :back_url => user_groups_path, :back_button => true,  :form_id => 'category_form', :action_button =>'Save' %>
-  
-  <%= render 'shared/messages'%>
-  
-  <%= form.text_field :name, autofocus: true, placeholder:'Category name' %>
-  
-  <%= form.hidden_field :icon %>
-  
-  <% icons = ['food', 'sport', 'transportation', 'book', 'bank', 'entertainment', 'invoice', 'computer', 'education'] %>
-
-  <%= field_set_tag 'Select category icon', class:'icons' do %>
-    <% icons.each do |icon|%>
-      <%= image_tag(icon, class:'category-icon selected', id:icon) %>
-    <% end %>
-  <% end %>
-
-<% end %>
-
+<div class = "nav-top-two">
+    <a href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <div id = "margin">
+      <p id= "no-padding">NEW CATEGORY</p>
+    </div>
 </div>
-
-<script>
-  let icons = document.querySelectorAll('.category-icon')
-  let icon_id = document.querySelector('#group_icon')
-  icons.forEach(icon => {
-    icon.className='category-icon'
-    icon.addEventListener('click', (event)=>{
-      icons.forEach(i=>i.classList.remove('selected'))
-      icon.classList.add('selected')
-      icon_id.value = event.target.id
-    })
-  });
-</script>
+<div class="login-page">
+    <div>
+        <%= form_with url: groups_path, model: @group do |f| %>
+        <% @group.errors.full_messages_for(:name).each do |m| %>
+        <%= m %>
+        <% end %>
+        <%= f.text_field :name, class: 'login-field',id: "groupname", placeholder: "Group Name", required: true %>
+        <%= f.text_field :icon, class: 'login-field mt-0', placeholder: "Icon URL" %>
+        <div class="green-field">
+            <%= f.submit "Create", class: "green-button" %>
+        </div>
+        <% end %>
+    </div>
+</div>
