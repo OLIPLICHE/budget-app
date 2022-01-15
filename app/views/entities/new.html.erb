@@ -1,25 +1,14 @@
-<div class="container">
-
- <%= form_with model: @entity,  url: user_group_entities_path(params[:user_id], params[:group_id]), method: 'post', class: "flex-column form", id:'transaction_form' do |form| %>
-
-  <header class="header flex-row">
-    <div>
-      <%= link_to user_group_path(params[:user_id],  params[:group_id]) do %>
-        <%= image_tag('left-arrow.png', size: "20x20") %>
-      <% end %>
+ <div class = "nav-top-two">
+    <a href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <div id = "margin">
+      <p id= "no-padding">NEW BUDGET-TRUCK</p>
     </div>
-
-    <div class="title">
-      NEW TRANSACTION
-    </div>
-    <div>
-      <button id="submit_button" class='submit' >Save</button>
-    </div>
-  </header>
-
-    <%= render partial: 'shared/messages' %>
-    <%= form.text_field :name, id:'name', autofocus: true, placeholder:'Transaction name', required: true %>
-    <%= form.number_field :amount, id:'amount', step: 0.01, min:0.01, placeholder:'Amount', required: true %>
-    <%= form.select :group_ids, @groups.map { |t| [t.name, t.id]}, :prompt =>'Select category', required: true %>
-   <% end %>
 </div>
+ <%= form_with url: group_entities_path(group_id: @group.id) , model: @entity do |f| %>
+    <%= f.text_field :name, class: 'login-field',id: "groupname", placeholder: "BugdetTruck Name", required: true %>
+    <%= f.text_field :amount, class: 'login-field mt-0', placeholder: "$", required: true %>
+    <%= f.hidden_field :group_id, value: @group.id %>
+    <div class="green-field">
+        <%= f.submit "CREATE", class: "green-button" %>
+    </div>
+<% end %>

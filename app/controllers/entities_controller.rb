@@ -1,27 +1,26 @@
 class EntitiesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
 
   def new
     @entity = Entity.new
-    @user = current_user
-    @groups = Group.where(user: @user)
+     @group = Group.find(params[:group_id])
   end
 
   def create
-    @entity = Entity.new(entity_params)
-    @entity.author = current_user
+    @group = Group.find(group_id)
+    @entity = @group.add_entity(entity_params)
 
-    if @entity.save
-      redirect_to user_group_path(current_user, params[:group_id]), notice: 'Transaction added succesfully'
-    else
-      render :new, notice: 'Ooops, something went wrong'
-    end
+    redirect_to @group
+  rescue ActiveRecord::RecordInvalid
+    render :new, group_id: group_id
   end
 
   private
 
+  def group_id
+    params.dig(:entity, :group_id) || params[:group_id]
+  end
+
   def entity_params
-    params.require(:entity).permit(:name, :amount, :group_ids)
+    params.require(:entity).permit(:name, :amount).merge(user: current_user)
   end
 end
