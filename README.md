@@ -44,23 +44,23 @@ rails g scaffold_controller model
 ### Undo migration
 rake db:migrate VERSION=0
 
-Author
+## Author
 👤 Olipliche Mavoungou Paka
 
-GitHub: @githubhandle
-Twitter: @twitterhandle
-LinkedIn: LinkedIn
+- GitHub: @githubhandle
+- Twitter: @twitterhandle
+- LinkedIn: LinkedIn
+
 
 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the issues page.
+- Feel free to check the issues page.
 
-Show your support
+## Show your support
 Give a ⭐️ if you like this project!
 
-Acknowledgments
-Microverse
-Original design idea by Gregoire Vella on Behance.
-License
-MIT
+## Acknowledgments
+- Microverse
+- Original design idea by Gregoire Vella on Behance.
+- License MIT
