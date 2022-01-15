@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   def show
     @user = current_user
     @group = Group.find(params[:id])
-    entities = @group.entities.order(created_at: :desc)
+    @entities = @group.entities.order(created_at: :desc)
     @total = @group.entities.sum(:amount)
   end
 
@@ -33,11 +33,10 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-  
-  private 
+
+  private
 
   def group_params
     params.require(:group).permit(:name, :icon)
   end
-
 end
