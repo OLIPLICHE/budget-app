@@ -1,4 +1,4 @@
-<div class="#">
+<div class="container flex-column">
 
   <%= render 'shared/header', title=> 'CATEGORIES', :back_button=> false, :form_id=> ''%>
 
@@ -9,12 +9,12 @@
   
   <%= render 'shared/messages'%>
 
-  <ul class='#'>
+  <ul class='list flex-column'>
     <% @groups.each do |group|%>
-      <li class='#'>
+      <li class='card flex-row'>
         <%= image_tag(group.icon, class: 'icon') %>
-        <div class='#'>
-          <div class='#'>
+        <div class='group-info flex-row'>
+          <div class='flex-column justify-space-between'>
             <%= link_to user_group_path(params[:user_id], group) do %>
               <h3><%= group.name%></h3>
             <%end%>
@@ -32,6 +32,6 @@
     <% end %>  
   </ul>
 
-  <%= link_to 'ADD NEW CATEGORY', new_user_group_path(@user), class: '#'%>
+  <%= link_to 'ADD NEW CATEGORY', new_user_group_path(@user), class: 'add-button'%>
 
 </div>

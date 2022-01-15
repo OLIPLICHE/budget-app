@@ -1,4 +1,4 @@
-<div class='#'>
+<div class='container'>
   <%= form_with model: @group,  url: user_groups_path(params[:user_id]), method: 'post', class: "flex-column form", id:'category_form' do |form| %>
   
   <%= render 'shared/header', :title => "NEW CATEGORY", :back_url => user_groups_path, :back_button => true,  :form_id => 'category_form', :action_button =>'Save' %>
