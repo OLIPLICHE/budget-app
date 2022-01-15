@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :entities
 
   validates :name, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: true }
+  validates :password, length: { in: 6..20 }
 end

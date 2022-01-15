@@ -1,0 +1,37 @@
+<div class="container flex-column">
+
+  <%= render partial: 'shared/header', locals: {:title=> 'CATEGORIES', :back_button => false, :form_id=> '' } %>
+
+  <div class="total-amount flex-row justify-space-between">
+    <span class="bold">Total amount:</span>
+    <span class="bold">$<%= '%.2f' % @total %></span>
+  </div>
+  
+  <%= render 'shared/messages'%>
+
+  <ul class='list flex-column'>
+    <% @groups.each do |group|%>
+      <li class='card flex-row'>
+        <%= image_tag(group.icon, class: 'icon') %>
+        <div class='group-info flex-row'>
+          <div class='flex-column justify-space-between'>
+            <%= link_to user_group_path(params[:user_id], group) do %>
+              <h3><%= group.name%></h3>
+            <%end%>
+            <span>
+              <%= group.created_at.strftime("%d")%>
+              <%= I18n.t("date.abbr_month_names")[group.created_at.strftime("%m").to_i]%>
+              <%= group.created_at.strftime("%Y")%>             
+            </span>
+          </div>
+          <div>
+            <span class='bold'>$<%= '%.2f' % group.entities.sum(:amount) %></span>
+          </div>
+        </div>
+      </li>
+    <% end %>  
+  </ul>
+
+  <%= link_to 'ADD NEW CATEGORY', new_user_group_path(@user), class: 'add-button'%>
+
+</div>

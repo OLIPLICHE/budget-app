@@ -1,0 +1,32 @@
+<div class="container flex-column">
+  <%= render 'shared/header', :title=> "TRANSACTIONS", :back_url => user_groups_path, :back_button => true, :form_id=> ''%>
+
+  <div class="total-amount flex-row justify-space-between">
+    <span class='bold'><%= @group.name %> (total amount):</span>
+    <span class='bold'>$<%= '%.2f' % @total %></span>
+  </div>
+
+  <%= render partial:'shared/messages'%>
+
+  <ul class="list flex-column">
+    <% @entities.each do |entity|%>
+      <li class='card flex-row'>
+        <div class='group-info flex-row'>
+          <div class='flex-column'>
+            <h3><%= entity.name %></h3>
+            <span class="date">
+              <%= entity.created_at.strftime("%d") %>
+              <%= I18n.t("date.abbr_month_names")[entity.created_at.strftime("%m").to_i]%>
+              <%= entity.created_at.strftime("%Y")%>
+            </span>
+          </div>
+
+           <span class='bold'>$<%= '%.2f' % entity.amount %></span>
+
+        </div>
+      </li> 
+    <%end%>        
+  </ul>
+
+  <%= link_to  'ADD TRANSACTION', new_user_group_entity_path(@group.user, @group), class:'add-button' %>
+</div>

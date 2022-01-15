@@ -1,0 +1,23 @@
+<header class="header flex-row">
+  <div>
+    <%  if back_button  %>
+      <%= link_to back_url do %>
+      <%= image_tag('left-arrow.png', size: "20x20") %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="title">
+    <%= title %>
+  </div>
+  <div>
+  
+    <% if form_id !='' %>
+        <button id="submit_button"onClick="document.getElementById('checked_items').value > 0 ? document.getElementById('<%= form_id %>').submit: false" class='submit' ><%= action_button %></button>
+      <% else %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= image_tag('log-out.png', size: "20x20") %>
+        <% end %>
+    <% end %>
+  </div>
+
+</header>
