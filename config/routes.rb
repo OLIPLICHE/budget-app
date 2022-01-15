@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "splash#index"
 
-  resources :splash
-  # resources :splash, only: %i[index]
+  resources :splash, only: %i[index]
+  resources :users, only: %i[index show] do
+
+    resources :groups do
+      resources :entities
+   end 
+  end
 end
