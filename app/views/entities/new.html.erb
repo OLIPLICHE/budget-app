@@ -17,6 +17,9 @@
     </div>
   </header>
 
-
-
+    <%= render partial: 'shared/messages' %>
+    <%= form.text_field :name, id:'name', autofocus: true, placeholder:'Transaction name', required: true %>
+    <%= form.number_field :amount, id:'amount', step: 0.01, min:0.01, placeholder:'Amount', required: true %>
+    <%= form.select :group_ids, @groups.map { |t| [t.name, t.id]}, :prompt =>'Select category', required: true %>
+   <% end %>
 </div>
